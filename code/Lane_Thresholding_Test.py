@@ -159,7 +159,7 @@ def stackImages(scale,imgArray):
     return ver
 
 if __name__ == '__main__':
-    cap = cv2.VideoCapture(r"C:\Users\HNE2COB\Downloads\2023-08-17-20.15.33.avi")
+    cap = cv2.VideoCapture(r"C:\Users\HNE2COB\Desktop\Picar-x\Picarx\Picarx\videos\shas.mp4")
     intialTrackBarVals = [102, 80, 20, 214 ]
     initializeTrackbars(intialTrackBarVals)
     frameCounter = 0
@@ -167,13 +167,12 @@ if __name__ == '__main__':
         frameCounter += 1
         if cap.get(cv2.CAP_PROP_FRAME_COUNT) == frameCounter:
             cap.set(cv2.CAP_PROP_POS_FRAMES, 0)
-            if frameCounter == 5:
-                break 
+            frameCounter = 0
  
         success, img = cap.read()
         img = cv2.resize(img,(480,240))
         curve = getLaneCurve(img,display=2)
         print(curve)
         #cv2.imshow('Vid',img)
-        cv2.waitKey(40)
+        cv2.waitKey(1)
  
